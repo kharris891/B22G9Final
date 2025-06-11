@@ -1,5 +1,7 @@
 package utils;
 
+import pages.JobDetailsPage;
+
 public class PageInitializer {
 
     // Core pages from template
@@ -8,7 +10,7 @@ public class PageInitializer {
     public static DashboardPage dashboardPage;
     public static SearchEmployeePage searchEmployeePage;
 
-    // Additional pages for other user stories
+//     Additional pages for other user stories
     public static EmployeeListPage employeeListPage;
     public static PersonalDetailsPage personalDetailsPage;
     public static ContactDetailsPage contactDetailsPage;
@@ -24,13 +26,13 @@ public class PageInitializer {
 
 
     public static void initializePageObjects(){
-        // core pages initialization
+//         core pages initialization
         loginPage = new LoginPage();
         addEmployeePage = new AddEmployeePage();
         dashboardPage = new DashboardPage();
         searchEmployeePage = new SearchEmployeePage();
 
-        // additional pages initialization
+//         additional pages initialization
         personalDetailsPage = new PersonalDetailsPage();
         contactDetailsPage = new ContactDetailsPage();
         photographPage = new PhotographPage();

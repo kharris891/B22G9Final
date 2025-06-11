@@ -21,7 +21,7 @@ public class CommonMethods extends PageInitializer {
 
     public static WebDriver driver;
 
-    public void openBrowserAndLaunchApplication() {
+    public void openBrowserAndLaunchApplication() throws RuntimeException {
         // initializePageObjects();
         switch (ConfigReader.read("browser")){
 

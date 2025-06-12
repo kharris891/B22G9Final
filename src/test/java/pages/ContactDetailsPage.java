@@ -7,5 +7,7 @@ import utils.CommonMethods;
 public class ContactDetailsPage extends CommonMethods {
 
     @FindBy(id="")
-    public WebElement;
+    public WebElement
+public class ContactDetailsPage {
+
 }

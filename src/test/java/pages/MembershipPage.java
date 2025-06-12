@@ -8,4 +8,6 @@ public class MembershipPage extends CommonMethods {
 
     @FindBy(id="")
     public WebElement;
+
+public class MembershipPage {
 }

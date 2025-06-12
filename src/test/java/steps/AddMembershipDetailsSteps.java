@@ -7,7 +7,9 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import pages.PersonalDetailsPage;
 import utils.CommonMethods;
+import utils.ConfigReader;
 
 import java.util.List;
 import java.util.Map;
@@ -20,11 +22,11 @@ public class AddMembershipDetailsSteps extends CommonMethods {
         Assert.assertTrue(isElementDisplayed(loginPage.usernameField));
     }
 
-    @When("the user logs in with valid credentials")
+    @When("the ess user logs in with valid credentials")
     public void the_user_logs_in_with_valid_credentials() {
-        sendText("admin", loginPage.usernameField);
-        sendText("Hum@nhrm123", loginPage.passwordField);
-        click(loginPage.loginButton);
+        loginPage.usernameField.sendKeys(ConfigReader.read("essUsername"));
+        loginPage.passwordField.sendKeys(ConfigReader.read("essPassword"));
+        loginPage.loginButton.click();
     }
 
     @Then("the user should be directed to the dashboard")
@@ -35,7 +37,10 @@ public class AddMembershipDetailsSteps extends CommonMethods {
 
     @When("the employee navigates to the Contact Information section")
     public void the_employee_navigates_to_the_contact_information_section() {
-        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/contactDetails/empNumber/106572");
+        WebElement myInfo = driver.findElement(By.xpath("//*[text()='My Info']"));
+        myInfo.click();
+        WebElement contactDetails = driver.findElement(By.xpath("//*[text()='Contact Details']"));
+        contactDetails.click();
     }
 
     @Then("the following fields should be displayed and editable:")
@@ -82,7 +87,7 @@ public class AddMembershipDetailsSteps extends CommonMethods {
 
     @Given("the employee is on the Contact Information section")
     public void the_employee_is_on_the_contact_information_section() {
-        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/contactDetails/empNumber/106572");
+        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/contactDetails/empNumber/104877");
         WebElement ciHeader = driver.findElement(By.xpath("//h1[text()='Contact Details']"));
         Assert.assertTrue(ciHeader.isDisplayed());
     }
@@ -116,7 +121,7 @@ public class AddMembershipDetailsSteps extends CommonMethods {
 
     @Given("the employee enters invalid data in contact fields")
     public void the_employee_enters_invalid_data_in_contact_fields() {
-        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/contactDetails/empNumber/106572");
+        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/contactDetails/empNumber/104877");
         WebElement saveBtn = driver.findElement(By.id("btnSave"));
         saveBtn.click();
         WebElement tele = driver.findElement(By.id("contact_emp_hm_telephone"));
@@ -147,7 +152,7 @@ public class AddMembershipDetailsSteps extends CommonMethods {
 
     @Given("the employee has previously saved contact information")
     public void the_employee_has_previously_saved_contact_information() {
-        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/contactDetails/empNumber/106572");
+        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/contactDetails/empNumber/104877");
     }
 
     @Then("all saved details should be displayed in the respective fields")

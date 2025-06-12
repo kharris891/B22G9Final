@@ -8,7 +8,7 @@ import utils.CommonMethods;
 import utils.ConfigReader;
 
 public class LoginValidationSteps extends CommonMethods {
-    @Given("the ESS user is on the HRMS login page")
+    @Given("the admin is on the HRMS login page")
     public void the_ess_user_is_on_the_hrms_login_page() {
         String expectedUrl = ConfigReader.read("url");
         String actualUrl = driver.getCurrentUrl();

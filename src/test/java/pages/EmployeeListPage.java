@@ -1,4 +1,11 @@
 package pages;
 
-public class EmployeeListPage {
+import org.openqa.selenium.support.PageFactory;
+import utils.CommonMethods;
+
+public class EmployeeListPage extends CommonMethods {
+
+    public EmployeeListPage(){
+        PageFactory.initElements(driver, this);
+    }
 }

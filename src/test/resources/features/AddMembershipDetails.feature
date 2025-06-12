@@ -2,7 +2,7 @@ Feature: Change my contact details as an employee
 
   Background:
     Given the user is on the HRMS login page
-    When the user logs in with valid credentials
+    When the ess user logs in with valid credentials
     Then the user should be directed to the dashboard
 
   @Membership1

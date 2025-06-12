@@ -1,6 +1,6 @@
 package utils;
 
-import steps.EditPersonalDetailsSteps;
+import pages.EditPersonalDetailsPage;
 
 public class PageInitializer {
 
@@ -12,7 +12,7 @@ public class PageInitializer {
 
     // Additional pages for other user stories
     //public static EmployeeListPage employeeListPage;
-    public static EditPersonalDetailsSteps personalDetailsPage;
+    public static EditPersonalDetailsPage editPersonalDetailsPage;
     //public static ContactDetailsPage contactDetailsPage;
     //public static PhotographPage photographPage;
     //public static DependentsPage dependentsPage;
@@ -21,11 +21,7 @@ public class PageInitializer {
     //public static MembershipPage membershipPage;
 
 
-
-
-
-
-    public static void initializePageObjects(){
+    public static void initializePageObjects() {
         // core pages initialization
         //loginPage = new LoginPage();
         //addEmployeePage = new AddEmployeePage();
@@ -33,7 +29,7 @@ public class PageInitializer {
         //searchEmployeePage = new SearchEmployeePage();
 
         // additional pages initialization
-        EditPersonalDetailsSteps EditPersonalDetailsSteps = new EditPersonalDetailsSteps();
+        editPersonalDetailsPage = new EditPersonalDetailsPage();
         //contactDetailsPage = new ContactDetailsPage();
         //photographPage = new PhotographPage();
         //dependentsPage = new DependentsPage();
@@ -44,6 +40,4 @@ public class PageInitializer {
 
 
     }
-
-
 }

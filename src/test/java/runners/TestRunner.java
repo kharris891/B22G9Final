@@ -1,24 +1,25 @@
 package runners;
 
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        // Path to all the feature files
+        //path to all the feature file
+        //   features = "src/test/resources/features/Login.feature"
+        // features = "src/test/resources/features/EmployeeSearch.feature"
         features = "src/test/resources/features/",
-        // Name of the package where all the step definitions are available
+        //name of  the package where all the step definitions available
         glue = "steps",
-        // If set to true, it stops execution and scans all the step definitions for missing steps
-        dryRun = false,
-        // Specify the tags to run specific scenarios
+        //if we set the value to true, it stops execution and scan all the step definitions and gives missing steps
+       //dryRun = false,
         tags = "@smoke",
-        // Generate reports
-        plugin = {
-                "pretty",
-
-        }
+        //html report
+        plugin = {"pretty","html:target/cucumber.html","rerun:target/failed.txt","json:target/cucumber.json"}
 )
+
+
 public class TestRunner {
 }

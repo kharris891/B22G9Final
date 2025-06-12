@@ -1,7 +1,7 @@
 Feature: Add Current Job Details for Employees
 
   Background:
-    # Given user is able to access HRMS application
+    Given user is able to access HRMS application
     When user enters valid login username and password
     And user clicks on the login button
     When user clicks on PIM option

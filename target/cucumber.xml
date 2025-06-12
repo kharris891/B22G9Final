@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="0.115" tests="2" skipped="0" failures="2" errors="0">
+<testcase classname="Edit Personal Details as an ESS User" name="Verify that personal detail fields are editable and selectable" time="0.019">
+<failure type="java.lang.NullPointerException" message="Cannot invoke &quot;org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)&quot; because &quot;steps.EditPersonalDetailsSteps.driver&quot; is null">
+<![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "steps.EditPersonalDetailsSteps.driver" is null
+	at steps.EditPersonalDetailsSteps.the_ess_user_is_on_the_hrms_login_page(EditPersonalDetailsSteps.java:20)
+	at ✽.the ESS user is on the HRMS login page(file:///Users/fahadghani/IdeaProjects/Group9B22version1/src/test/resources/features/EditPersonalDetails.feature:4)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the ESS user is on the HRMS login page................................failed
+When the user logs in with valid credentials................................skipped
+Then the user should be redirected to the dashboard.........................skipped
+Given the user navigates to the PIM section.................................skipped
+Then user click on Employee name and search for ESS user....................skipped
+When the user clicks on search button.......................................skipped
+Then the user should  see ESS user and click on it..........................skipped
+When the user clicks on Edit................................................skipped
+Then the First Name field should be editable................................skipped
+Then the First Name field should be editable................................skipped
+And the Middle Name field should be editable................................skipped
+And the Last Name field should be editable..................................skipped
+And the Gender radio buttons should be selectable...........................skipped
+And the Nationality dropdown should be selectable...........................skipped
+And the Marital Status dropdown should be selectable........................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Edit Personal Details as an ESS User" name="Edit and save personal details" time="0.003">
+<failure type="java.lang.NullPointerException" message="Cannot invoke &quot;org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)&quot; because &quot;steps.EditPersonalDetailsSteps.driver&quot; is null">
+<![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "steps.EditPersonalDetailsSteps.driver" is null
+	at steps.EditPersonalDetailsSteps.the_ess_user_is_on_the_hrms_login_page(EditPersonalDetailsSteps.java:20)
+	at ✽.the ESS user is on the HRMS login page(file:///Users/fahadghani/IdeaProjects/Group9B22version1/src/test/resources/features/EditPersonalDetails.feature:4)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the ESS user is on the HRMS login page................................failed
+When the user logs in with valid credentials................................skipped
+Then the user should be redirected to the dashboard.........................skipped
+Given the user clicks Edit update personal information......................skipped
+And the user enters "Nadia" in the first name field.........................skipped
+And the user enters "Ms" in the Middle Name field...........................skipped
+And the user enters "Bilal" in the Last Name field..........................skipped
+And the user selects "Female" as Gender.....................................skipped
+And the user selects "Pakistani" from the Nationality dropdown..............skipped
+And the user selects "Married" from the Marital Status dropdown.............skipped
+And the user clicks on "Save" to save the changes...........................skipped
+Then the system should be displaying the updated personal details...........skipped
+And the changes should be saved and visible successfully in the database....skipped
+]]></system-out>
+</testcase>
+</testsuite>

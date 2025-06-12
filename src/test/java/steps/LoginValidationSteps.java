@@ -17,7 +17,7 @@ public class LoginValidationSteps extends CommonMethods {
     }
     @When("the user logs in with valid ESS credentials")
     public void the_user_logs_in_with_valid_ess_credentials() {
-        loginPage.usernameField.sendKeys(ConfigReader.read("Username"));
+        loginPage.usernameField.sendKeys(ConfigReader.read("userName"));
         loginPage.passwordField.sendKeys(ConfigReader.read("password"));
         loginPage.loginButton.click();
     }

@@ -1,6 +1,18 @@
 package utils;
 
 import pages.EditPersonalDetailsPage;
+import pages.LoginPage;
+import pages.AddEmployeePage;
+import pages.DashboardPage;
+import pages.SearchEmployeePage;
+import pages.EmployeeListPage;
+import pages.PersonalDetailsPage;
+import pages.ContactDetailsPage;
+import pages.PhotographPage;
+import pages.DependentsPage;
+import pages.JobDetailsPage;
+import pages.QualificationsPage;
+import pages.MembershipPage;
 
 public class PageInitializer {
 

@@ -31,7 +31,7 @@ public class JobDetailsPage extends CommonMethods {
     @FindBy(id="job_emp_status")
     public WebElement empStatusDropdown;
 
-    @FindBy(id="job_job_category")
+    @FindBy(id="job_eeo_category")
     public WebElement jobCategoryDropdown;
 
     @FindBy(id="(//img[contains(@src, 'calendar.png')])[1]")
@@ -91,8 +91,14 @@ public class JobDetailsPage extends CommonMethods {
     @FindBy(id="btnSave")
     public WebElement editAndSaveButton;
 
-    @FindBy(xpath="//div[@class='message success fadable']")
+    @FindBy(id="//div[@class='message success fadable']")
     public WebElement successMessage;
+
+    @FindBy(id="job_contract_file")
+    public WebElement contractFileUpload;
+
+    @FindBy(xpath="//div[@class='message warning fadable']")
+    public WebElement warningMessage;
 
     public void selectMonth(String month) {
         calendarMonth.click();  // Open the month dropdown

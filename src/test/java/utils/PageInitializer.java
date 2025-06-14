@@ -1,5 +1,6 @@
 package utils;
 
+import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
 import pages.AddEmployeePage;
 import pages.DashboardPage;
@@ -36,9 +37,9 @@ public class PageInitializer {
 
 
 
-    public static void initializePageObjects(){
+    public static void initializePageObjects(WebDriver driver){
         // core pages initialization
-        loginPage = new LoginPage();
+        loginPage = new LoginPage(driver);
         addEmployeePage = new AddEmployeePage();
         dashboardPage = new DashboardPage();
         searchEmployeePage = new SearchEmployeePage();

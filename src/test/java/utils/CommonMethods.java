@@ -46,7 +46,7 @@ public class CommonMethods extends PageInitializer {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(ConfigReader.read("url"));
         //this ,method will call all the objects
-        initializePageObjects();
+        initializePageObjects(driver);
 
     }
 

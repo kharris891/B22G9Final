@@ -1,4 +1,4 @@
-@ess
+@java @ess
 Feature: Change my contact details as an employee
 
   #Background:

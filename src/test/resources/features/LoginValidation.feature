@@ -1,4 +1,4 @@
-
+@java
 Feature: Test the Login Functionality of HRMS Application
 
   @Test

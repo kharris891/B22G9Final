@@ -1,4 +1,4 @@
-@ess
+@java @ess
 Feature: Edit Personal Details as an ESS User
 
   #Background:

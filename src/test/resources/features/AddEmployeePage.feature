@@ -1,4 +1,4 @@
-@admin
+@java @admin
 Feature: Adding an Employee to the HRMS Application
 
     #Background:

@@ -12,7 +12,7 @@ public class Hooks extends CommonMethods {
 
     public static LoginPage loginPage;
 
-    @Before(order = 0)
+    @Before(value = "@java", order = 0)
     public void start(){
         //it is my pre condition
         openBrowserAndLaunchApplication();
@@ -34,7 +34,7 @@ public class Hooks extends CommonMethods {
         loginPage.loginButton.click();
     }
 
-    @After
+    @After(value = "@java")
     public void end(Scenario scenario){
         //scenario class holds the complete information about the execution
         //it is my post condition

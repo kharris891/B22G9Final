@@ -1,4 +1,4 @@
-@admin
+@java @admin
 Feature: Add Current Job Details for Employees
 
   #Background:

@@ -1,4 +1,4 @@
-@admin
+@java @admin
 Feature: Employee Search
 
   As an HRMS application administrator,

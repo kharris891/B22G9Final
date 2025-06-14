@@ -1,4 +1,4 @@
-@ess
+@java @ess
 Feature: Profile Picture Upload for ESS Users
   As an ESS user
   I want to upload a profile picture

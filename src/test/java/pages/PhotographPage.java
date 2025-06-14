@@ -7,21 +7,14 @@ import utils.CommonMethods;
 
 public class PhotographPage extends CommonMethods {
 
-    @FindBy(id = "Upload")
-    public WebElement profilePictureUpload;
-
-    @FindBy(xpath = "//input[@id='photofile']")
-    public WebElement photofileBtn;
-
     @FindBy(id = "btnSave")
     public WebElement uploadButton;
 
     @FindBy(css = ".message.success")
     public WebElement uploadSuccessMessage;
 
-    @FindBy(css = ".message.error")
-    public WebElement errorMessageContainer;
-
+    @FindBy(id = "photofile")
+    public WebElement photoFileInput;
 
 
     public PhotographPage() {

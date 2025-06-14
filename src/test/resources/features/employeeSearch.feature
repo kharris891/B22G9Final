@@ -29,8 +29,9 @@ Feature: Employee Search
     And the admin clicks the Search button
     Then the employee search results should include "Amir ms Abbass"
 
-  #Scenario: Search for a non-existing employee
-    #And the admin clicks the Reset button
-    #And the admin enters full name "No One Exists"
-    #And the admin clicks the Search button
-    #Then the system should display "No Records Found"
+  @emp @emp4
+  Scenario: Search for a non-existing employee
+    And the admin clicks the Reset button
+    And the admin enters full name "No One Exists"
+    And the admin clicks the Search button
+    Then the system should display "No Records Found"

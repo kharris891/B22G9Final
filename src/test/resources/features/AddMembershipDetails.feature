@@ -6,7 +6,7 @@ Feature: Change my contact details as an employee
     #When the ess user logs in with valid credentials
     #Then the user should be directed to the dashboard
 
-  @Membership1
+  @details1 @details
   Scenario: Access and view contact information fields
     When the employee navigates to the Contact Information section
     Then the following fields should be displayed and editable:
@@ -22,21 +22,21 @@ Feature: Change my contact details as an employee
       | Work Phone       | Textbox  |
       | Work Email       | Textbox  |
 
-  @Membership2
+  @details2 @details
   Scenario: Edit and save contact information
     Given the employee is on the Contact Information section
     When the employee updates one or more of the contact information fields
     And clicks the "Save" button
     Then the system should save the updated contact information
 
-  @Membership3
+  @details3 @details
   Scenario: Attempt to save with invalid input (e.g., incorrect email or phone format)
     Given the employee enters invalid data in contact fields
     When the employee clicks the "Save" button
     Then the system should display appropriate validation messages
     And the information should not be saved until valid
 
-  @Membership4
+  @details4 @details
   Scenario: View saved contact information
     Given the employee has previously saved contact information
     When the employee navigates to the Contact Information section

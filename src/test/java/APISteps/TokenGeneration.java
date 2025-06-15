@@ -21,12 +21,12 @@ public class TokenGeneration extends CommonMethods {
 
     @When("a JWT token is generated with a response that contains the key \"token\" with a valid token value")
     public void a_JWT_token_is_generated_with_a_response_that_contains_the_key_token_with_a_valid_token_value() {
-        req = req.given()
+        req = given()
                 .baseUri(baseURI)
                 .header(APIConstants.HEADER_CONTENT_TYPE_KEY,APIConstants.HEADER_CONTENT_TYPE_VALUE)
                 .body("{\n" +
-                        "\"email\": \"______@_____.com\",\n" + // Replace with a valid email generated in API User Story 1
-                        "\"password\": \"________\"\n" + // Replace with a valid password generated in API User Story 1
+                        "\"email\": \"peter.parker@example.com\",\n" + // Replace with a valid email generated in API User Story 1
+                        "\"password\": \"PassPass123\"\n" + // Replace with a valid password generated in API User Story 1
                         "}");
         resp = req.when().post(APIConstants.GENERATE_TOKEN_URI);
         resp.prettyPrint();
@@ -39,8 +39,8 @@ public class TokenGeneration extends CommonMethods {
         resp = given()
                 .header(APIConstants.HEADER_CONTENT_TYPE_KEY, APIConstants.HEADER_CONTENT_TYPE_VALUE)
                 .body("{\n" +
-                        "\"email\": \"hello@syntax.com\",\n" + // Invalid email
-                        "\"password\": \"________\"\n" + // Replace with a valid password generated in API User Story 1
+                        "\"email\": \"invalidEmail\",\n" + // Invalid email
+                        "\"password\": \"Pass123\"\n" + // Replace with a valid password generated in API User Story 1
                         "}")
                 .when()
                 .post(APIConstants.GENERATE_TOKEN_URI);
@@ -91,7 +91,7 @@ public class TokenGeneration extends CommonMethods {
 
     @Given("a POST call is made to generate the API token with missing required fields")
     public void a_post_call_is_made_to_generate_the_api_token_with_missing_required_fields() {
-        String requestBody = "{ \"email\": \"___@___.com\" }"; //Replace with a valid email generated in API User Story 1
+        String requestBody = "{ \"email\": \"peter.parker92@example.com\" }"; //Replace with a valid email generated in API User Story 1
 
         resp = given()
                 .header(APIConstants.HEADER_CONTENT_TYPE_KEY, APIConstants.HEADER_CONTENT_TYPE_VALUE)

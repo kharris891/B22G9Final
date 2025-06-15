@@ -7,10 +7,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import pages.PersonalDetailsPage;
 import utils.CommonMethods;
-import utils.ConfigReader;
-
 import java.util.List;
 import java.util.Map;
 
@@ -41,14 +38,12 @@ public class AddMembershipDetailsSteps extends CommonMethods {
     @When("the employee navigates to the Contact Information section")
     public void the_employee_navigates_to_the_contact_information_section() {
         contactDetailsPage.myInfo.click();
-        WebElement contactDetails = driver.findElement(By.xpath("//*[text()='Contact Details']"));
-        contactDetails.click();
+        contactDetailsPage.contactDetails.click();
     }
 
     @Then("the following fields should be displayed and editable:")
     public void the_following_fields_should_be_displayed_and_editable(DataTable dataTable) {
-        WebElement editBtn = driver.findElement(By.id("btnSave"));
-        click(editBtn);
+        contactDetailsPage.saveBtn.click();
         List<Map<String, String>> fields = dataTable.asMaps(String.class, String.class);
 
         Map<String, By> fieldLocators = Map.of(
@@ -90,18 +85,15 @@ public class AddMembershipDetailsSteps extends CommonMethods {
     @Given("the employee is on the Contact Information section")
     public void the_employee_is_on_the_contact_information_section() {
         contactDetailsPage.myInfo.click();
-        WebElement contactDetails = driver.findElement(By.xpath("//*[text()='Contact Details']"));
-        waitForElementToBeClickAble(contactDetails);
-        contactDetails.click();
+        waitForElementToBeClickAble(contactDetailsPage.contactDetails);
+        contactDetailsPage.contactDetails.click();
     }
 
     @When("the employee updates one or more of the contact information fields")
     public void the_employee_updates_one_or_more_of_the_contact_information_fields() {
-        WebElement add1 = driver.findElement(By.id("contact_street1"));
-        WebElement tele = driver.findElement(By.id("contact_emp_hm_telephone"));
         contactDetailsPage.saveBtn.click();
-        sendText("123 Main Ave", add1);
-        sendText("123-456-7890", tele);
+        sendText("123 Main Ave", contactDetailsPage.add1);
+        sendText("123-456-7890", contactDetailsPage.tele);
     }
 
     @When("clicks the {string} button")
@@ -111,21 +103,20 @@ public class AddMembershipDetailsSteps extends CommonMethods {
 
     @Then("the system should save the updated contact information")
     public void the_system_should_save_the_updated_contact_information() {
-        String enteredValue1 = driver.findElement(By.id("contact_street1")).getAttribute("value");
+        String enteredValue1 = contactDetailsPage.add1.getAttribute("value");
         Assert.assertEquals(enteredValue1, "123 Main Ave");
-        String enteredValue2 = driver.findElement(By.id("contact_emp_hm_telephone")).getAttribute("value");
+        String enteredValue2 = contactDetailsPage.tele.getAttribute("value");
         Assert.assertEquals(enteredValue2, "123-456-7890");
     }
 
     @Given("the employee enters invalid data in contact fields")
     public void the_employee_enters_invalid_data_in_contact_fields() {
-        contactDetailsPage.myInfo.click();
-        WebElement contactDetails = driver.findElement(By.xpath("//*[text()='Contact Details']"));
-        waitForElementToBeClickAble(contactDetails);
-        contactDetails.click();
+        waitForElementToBeClickAble(contactDetailsPage.contactDetails);
+        contactDetailsPage.contactDetails.click();
         contactDetailsPage.saveBtn.click();
-        WebElement tele = driver.findElement(By.id("contact_emp_hm_telephone"));
-        sendText("abcdef", tele);
+        waitForElementToBeClickAble(contactDetailsPage.tele);
+        contactDetailsPage.tele.clear();
+        sendText("abcdef", contactDetailsPage.tele);
     }
 
     @When("the employee clicks the {string} button")
@@ -135,15 +126,15 @@ public class AddMembershipDetailsSteps extends CommonMethods {
 
     @Then("the system should display appropriate validation messages")
     public void the_system_should_display_appropriate_validation_messages() {
-        WebElement errormsg = driver.findElement(By.xpath("//*[text()='Allows numbers and only + - / ( )']"));
-        String errorText = errormsg.getText();
-        Assert.assertEquals(errorText,"Allows numbers and only + - / ( )");
+        //WebElement errormsg = driver.findElement(By.xpath("//*[text()='Allows numbers and only + - / ( )']"));
+        String errorText = contactDetailsPage.errormsg.getText();
+        Assert.assertEquals(errorText,contactDetailsPage.errormsg);
     }
 
     @Then("the information should not be saved until valid")
     public void the_information_should_not_be_saved_until_valid() {
-        WebElement tele = driver.findElement(By.id("contact_emp_hm_telephone"));
-        sendText("123-456-7890", tele);
+        //WebElement tele = driver.findElement(By.id("contact_emp_hm_telephone"));
+        sendText("123-456-7890", contactDetailsPage.tele);
         waitForElementToBeClickAble(contactDetailsPage.saveBtn);
         contactDetailsPage.saveBtn.click();
     }
@@ -151,15 +142,16 @@ public class AddMembershipDetailsSteps extends CommonMethods {
     @Given("the employee has previously saved contact information")
     public void the_employee_has_previously_saved_contact_information() {
         contactDetailsPage.myInfo.click();
-        WebElement contactDetails = driver.findElement(By.xpath("//*[text()='Contact Details']"));
-        contactDetails.click();
+        contactDetailsPage.contactDetails.click();
     }
 
     @Then("all saved details should be displayed in the respective fields")
     public void all_saved_details_should_be_displayed_in_the_respective_fields() {
-        String enteredValue1 = driver.findElement(By.id("contact_street1")).getAttribute("value");
+        //String enteredValue1 = driver.findElement(By.id("contact_street1")).getAttribute("value");
+        String enteredValue1 = contactDetailsPage.add1.getAttribute("value");
         Assert.assertEquals(enteredValue1, "123 Main Ave");
-        String enteredValue2 = driver.findElement(By.id("contact_emp_hm_telephone")).getAttribute("value");
+        //String enteredValue2 = driver.findElement(By.id("contact_emp_hm_telephone")).getAttribute("value");
+        String enteredValue2 = contactDetailsPage.tele.getAttribute("value");
         Assert.assertEquals(enteredValue2, "123-456-7890");
     }
 

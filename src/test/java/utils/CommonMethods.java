@@ -135,6 +135,15 @@ public class CommonMethods extends PageInitializer {
         }
     }
 
+    public boolean isElementPresent(String xpath) {
+        try {
+            driver.findElement(By.xpath(xpath));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
     // Calendar methods for date picker
     //Calendar Icon 1
     public void calIcon1(String inputId) {
@@ -189,4 +198,15 @@ public class CommonMethods extends PageInitializer {
         selectYear(year);
         selectDay(day);
     }
+
+
+    public void navigateToDependentsTab() {
+//        WebElement viewPimModule = driver.findElement(By.id("menu_pim_viewPimModule"));
+//        click(viewPimModule);
+//
+//        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/viewEmployee/empNumber/118740");
+
+        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/pim/viewDependents/empNumber/104877");
+    }
+
 }

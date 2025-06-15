@@ -31,7 +31,7 @@ Feature: Change my contact details as an employee
 
   @details3 @details
   Scenario: Attempt to save with invalid input (e.g., incorrect email or phone format)
-    Given the employee enters invalid data in contact fields
+    Given the employee is on the Contact Information section
     When the employee clicks the "Save" button
     Then the system should display appropriate validation messages
     And the information should not be saved until valid

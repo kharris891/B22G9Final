@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import utils.CommonMethods;
+
+import java.util.List;
 import java.util.Map;
 
 
@@ -45,7 +47,7 @@ public class MembershipPage extends CommonMethods {
     public WebElement membershipField;
 
     @FindBy(id = "membership_subscriptionPaidBy")
-    public WebElement subscriptionPaidByField;
+    public WebElement subscriptionPaidby;
 
     @FindBy(id = "membership_subscriptionAmount")
     public WebElement subscriptionAmountField;
@@ -62,8 +64,18 @@ public class MembershipPage extends CommonMethods {
     @FindBy(id = "btnSaveMembership")
     public WebElement saveMembershipButton;
 
+    @FindBy(xpath = "//table[@id='resultTable']/tbody/tr[1]/td[2]/a")
+    public WebElement employee;
+
+    @FindBy(xpath = "(//a[text()='Memberships'])[2]")
+    public WebElement membershipsTab;
+
     @FindBy(id = "btnCancel")
     public WebElement cancelButton;
+
+    @FindBy(id = "addPaneMembership")
+    public WebElement addMembershipPlane;
+
 
     // ----- Deletion Elements -----
     @FindBy(xpath = "(//input[@type='checkbox'])[2]")
@@ -71,6 +83,19 @@ public class MembershipPage extends CommonMethods {
 
     @FindBy(id = "delMemsBtn")
     public WebElement deleteMembershipButton;
+
+    @FindBy(xpath = "//td[@class='memshipCode']")
+    public WebElement addedMembership;
+
+    @FindBy(xpath="//a[text()='Brain Buster']")
+    public WebElement membershipLink;
+
+    @FindBy(xpath="//a[text()='Membership1']")
+    public WebElement membershipLinkAfterUpdate;
+
+
+    @FindBy (xpath = "(//input[@type='checkbox'])[2]")
+    public WebElement membershipCheckbox;
 
     // ----- Optional Feedback Elements -----
     // @FindBy(id = "successMsg")
@@ -91,7 +116,15 @@ public class MembershipPage extends CommonMethods {
         sendText(data.get("Commence Date"), membershipPage.subscriptionCommenceDateField); sendText(data.get("Renewal Date"), membershipPage.subscriptionRenewalDateField);
     }
 
+    public void fillMembershipData(List<Map<String, String>> data) {
+        new Select(membershipPage.membershipField).selectByVisibleText(data.get(0).get("Membership"));
+        new Select(membershipPage.subscriptionPaidby).selectByVisibleText(data.get(0).get("Subscription Paid By"));
+        sendText(data.get(0).get("Subscription Amount"), membershipPage.subscriptionAmountField);
+        new Select(membershipPage.currencyField).selectByVisibleText(data.get(0).get("Currency"));
+        sendText(data.get(0).get("Subscription Commence Date"), membershipPage.subscriptionCommenceDateField);
+        sendText(data.get(0).get("Subscription Renewal Date"), membershipPage.subscriptionRenewalDateField);
 
+    }
 
     public MembershipPage(){
         PageFactory.initElements(driver, this);

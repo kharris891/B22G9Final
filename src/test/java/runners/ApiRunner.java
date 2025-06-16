@@ -14,6 +14,11 @@ import org.junit.runner.RunWith;
         //dryRun = false,
         tags = "@api",
         //html report
-        plugin = {"pretty","html:target/cucumber.html","rerun:target/failed.txt","json:target/cucumber.json"}
-)public class ApiRunner {
+
+        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json",
+                "rerun:target/failed.txt"}
+)
+
+
+public class ApiRunner {
 }

@@ -1,7 +1,7 @@
 @java
 Feature: Test the Login Functionality of HRMS Application
 
-  @Test
+  @Test24
   Scenario: valid admin login with username and password
     Given the user is on the HRMS login page
     When the user logs in with valid admin credentials

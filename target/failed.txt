@@ -1,4 +1,0 @@
-file:src/test/resources/features/JobDetails.feature:11:32
-file:src/test/resources/features/Dependent.feature:20:29
-file:src/test/resources/features/AddMembershipDetails.feature:33
-file:src/test/resources/features/employeeSearch.feature:33

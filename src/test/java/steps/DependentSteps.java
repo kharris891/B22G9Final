@@ -2,7 +2,6 @@ package steps;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import utils.CommonMethods;
 
 public class DependentSteps extends CommonMethods {

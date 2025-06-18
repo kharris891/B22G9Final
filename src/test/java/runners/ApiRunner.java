@@ -15,8 +15,7 @@ import org.junit.runner.RunWith;
         tags = "@api",
         //html report
 
-        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json",
-                "rerun:target/failed.txt"}
+        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json","rerun:target/failed.txt"}
 )
 
 

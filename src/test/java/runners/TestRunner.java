@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         glue = "steps",
         //if we set the value to true, it stops execution and scan all the step definitions and gives missing steps
         //dryRun = false,
-        tags = "@java",
+        tags = "@Test24",
         //html report
 
         plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json",
